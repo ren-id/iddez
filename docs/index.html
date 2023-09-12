@@ -6,6 +6,14 @@
     margin: 0;
     overflow: hidden;
   }
+  .terminal-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
   .terminal {
     position: absolute;
     bottom: 0;
@@ -15,10 +23,6 @@
     color: white;
     white-space: nowrap;
     animation: move 10s linear infinite;
-    width:100%;
-    height: 100%;
-    top: 0;
-    left: 0;
   }
   .terminal:hover {
     background: linear-gradient(45deg, #ff00ff, #00ffff);
@@ -41,7 +45,9 @@
 </style>
 </head>
 <body>
-<div class="terminal" id="terminal">
+<div class="terminal-container">
+  <div class="terminal" id="terminal">
+  </div>
 </div>
 <script>
   const terminal = document.getElementById("terminal");
