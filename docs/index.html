@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+  .terminal {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: monospace;
+    background-color: black;
+    color: white;
+    white-space: nowrap;
+    animation: move 10s linear infinite;
+  }
+  .terminal:hover {
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    background-size: 200% 200%;
+    animation: gradient 0.5s linear infinite;
+  }
+  @keyframes move {
+    to {
+      transform: translate(-100%, -100%);
+    }
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="terminal" id="terminal">
+</div>
+<script>
+  const terminal = document.getElementById("terminal");
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  function generateRandomCharacter() {
+    return characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+
+  function generateRandomText(length) {
+    let text = '';
+    for (let i = 0; i < length; i++) {
+      text += generateRandomCharacter();
+    }
+    return text;
+  }
+
+  function createMovingText() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const textLength = screenWidth * screenHeight; // Panjang teks disesuaikan dengan ukuran layar
+    const text = generateRandomText(textLength);
+    terminal.textContent = text;
+  }
+
+  createMovingText();
+</script>
+</body>
+</html>
