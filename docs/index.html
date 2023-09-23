@@ -1,79 +1,432 @@
 <!DOCTYPE html>
+
+<!--
+    Owned and maintained by renopky.com
+    Please do not do something bad.
+    Thank you for your time!
+-->
 <html>
+
 <head>
-<style>
-  body {
-    margin: 0;
-    overflow: hidden;
-  }
-  .terminal-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  .terminal {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-family: monospace;
-    background-color: black;
-    color: white;
-    white-space: nowrap;
-    animation: move 10s linear infinite;
-  }
-  .terminal:hover {
-    background: linear-gradient(45deg, #ff00ff, #00ffff);
-    background-size: 200% 200%;
-    animation: gradient 0.5s linear infinite;
-  }
-  @keyframes move {
-    to {
-      transform: translate(-100%, -100%);
-    }
-  }
-  @keyframes gradient {
-    0% {
-      background-position: 0 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-</style>
+    <title>Bikin website bareng Renopky di Palangka Raya</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=general-sans@701,500,301,300,401,501,400,700&display=swap"
+        rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #009a67ff;
+            --primary-color-light: #e1fff5ff;
+            --primary-size: 16px;
+            --clear-border: 0 0 0 0;
+            --mp-1: var(--primary-size) var(--primary-size) var(--primary-size) var(--primary-size);
+            --mp-2: calc(2 * var(--primary-size)) calc(2 * var(--primary-size)) calc(2 * var(--primary-size)) calc(2 * var(--primary-size));
+        }
+
+        * {
+            font-family: 'General Sans', 'Inter', Arial, Helvetica, sans-serif;
+            outline: none;
+            font-size: var(--primary-size);
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: var(--clear-border);
+            padding: var(--clear-border);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .baris {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: stretch;
+            align-items: stretch;
+            justify-content: flex-start;
+        }
+
+        .absolut {
+            position: absolute;
+        }
+
+        .relatif {
+            position: relative;
+        }
+
+        .lebar-penuh {
+            width: 100%;
+        }
+
+        .tinggi-penuh {
+            height: 100%;
+        }
+
+        .latar-utama {
+            background-color: var(--primary-color);
+            color: #ffffffff;
+        }
+
+        .latar-utama-muda {
+            background-color: var(--primary-color-light);
+            color: #555555ff;
+        }
+
+        .p-1 {
+            padding: var(--mp-1);
+        }
+
+        .p-2 {
+            padding: var(--mp-2);
+        }
+
+        .m-1 {
+            margin: var(--mp-1);
+        }
+
+        .m-2 {
+            margin: var(--mp-2);
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .middle {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .overflow {
+            overflow: auto;
+        }
+
+        .outline:hover {
+            outline-width: 0 0 2px 0;
+            outline-style: solid;
+            outline-color: var(--primary-color-light);
+            outline-offset: 0;
+            border-radius: 4px 4px 4px 4px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        form {
+            margin: calc(2 * var(--primary-size)) 0 0 0;
+            padding: var(--clear-border);
+        }
+
+        article h1:first-child {
+            margin: var(--clear-border);
+        }
+
+        .center-items {
+            align-items: center;
+        }
+
+        .jarak-2 {
+            height: calc(3 * var(--primary-size));
+        }
+
+        .icon {
+            max-width: 48px;
+            margin: 0 auto 0 auto;
+        }
+
+        .icon svg {
+            width: 100%;
+        }
+
+        textarea {
+            border: none;
+            background-color: #ffffff;
+            margin: var(--clear-border);
+            border-radius: 4px 4px 4px 4px;
+        }
+
+        .pop-up {
+            z-index: 999;
+            position: fixed;
+            top: var(--primary-size);
+            bottom: var(--primary-size);
+            left: var(--primary-size);
+            right: var(--primary-size);
+            background-color: #e9e9e9e0;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 6px 6px 6px 6px;
+            overflow: auto;
+        }
+
+        div[name='tentang'],
+        div[name='biaya'] {
+            display: none;
+        }
+
+        :target[name='tentang'],
+        :target[name='biaya'] {
+            display: block;
+        }
+
+        .negatif {
+            color: #ff0101;
+        }
+
+        .informasi {
+            background-color: #ffffffff;
+            color: #000000ff;
+        }
+
+        .border-bottom {
+            border-bottom: 1px solid #aaaaaa2b;
+        }
+
+        .h1 {
+            font-weight: 600;
+            font-size: 48px;
+        }
+
+        .h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .baris .informasi:nth-child(2n) {
+            background-color: var(--primary-color-light);
+        }
+
+        /** Media lanskap lebar lebih dari 960 piksel **/
+
+        .col-2 {
+            width: 50%;
+        }
+
+        .col-3 {
+            width: 33.33%;
+        }
+
+        .col-4 {
+            width: 25%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+        }
+    </style>
 </head>
+
 <body>
-<div class="terminal-container">
-  <div class="terminal" id="terminal">
-  </div>
-</div>
-<script>
-  const terminal = document.getElementById("terminal");
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    <div class="baris absolut lebar-penuh tinggi-penuh">
+        <div class="latar-utama col-2 overflow">
+            <div class="p-2">
+                <header class="baris center-items">
+                    <div class="col-2">
+                        <a href="/">
+                            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                            <!-- Created with Inkscape (http://www.inkscape.org/) -->
+                            <svg width="92.039879" height="21.864002" viewBox="0 0 24.352217 5.7848506" version="1.1"
+                                id="svg1" inkscape:version="1.3 (0e150ed, 2023-07-21)"
+                                sodipodi:docname="landing_page_renopky.svg"
+                                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                                <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000"
+                                    borderopacity="0.25" inkscape:showpageshadow="false" inkscape:pageopacity="0.0"
+                                    inkscape:pagecheckerboard="0" inkscape:deskcolor="#d1d1d1"
+                                    inkscape:document-units="px" showborder="false" inkscape:zoom="0.35783426"
+                                    inkscape:cx="1087.0954" inkscape:cy="543.54772" inkscape:window-width="1366"
+                                    inkscape:window-height="696" inkscape:window-x="0" inkscape:window-y="0"
+                                    inkscape:window-maximized="1" inkscape:current-layer="layer1" />
+                                <defs id="defs1" />
+                                <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1"
+                                    transform="translate(-10.583332,-10.983734)">
+                                    <g id="text8"
+                                        style="font-weight:500;font-size:6.35px;line-height:1.1;font-family:'General Sans';-inkscape-font-specification:'General Sans Medium';text-align:center;text-anchor:middle;fill:#ffffff;stroke-width:0.264583"
+                                        aria-label="renopky">
+                                        <path style="font-weight:bold;-inkscape-font-specification:'General Sans Bold'"
+                                            d="m 11.669182,13.968234 c 0,-0.75565 0.48895,-0.8128 1.2573,-0.7366 v -1.1303 c -0.5461,0 -1.08585,0.2286 -1.3462,0.62865 v -0.60325 h -0.99695 v 3.4163 h 1.08585 z m 3.18769,1.63195 c 0.8509,0 1.45415,-0.43815 1.6637,-1.2192 h -1.08585 c -0.09525,0.24765 -0.29845,0.37465 -0.60325,0.37465 -0.34925,0 -0.55245,-0.2159 -0.6096,-0.6477 h 2.31775 c 0.19685,-1.12395 -0.5588,-2.0447 -1.6891,-2.0447 -1.016,0 -1.7526,0.74295 -1.7526,1.7653 0,1.06045 0.70485,1.77165 1.75895,1.77165 z m -0.03175,-2.73685 c 0.32385,0 0.53975,0.22225 0.55245,0.56515 h -1.143 c 0.0762,-0.381 0.2667,-0.56515 0.59055,-0.56515 z m 3.327398,0.88265 c 0,-0.51435 0.2413,-0.70485 0.508,-0.70485 0.3302,0 0.4826,0.23495 0.4826,0.66675 v 1.83515 h 1.08585 v -2.1971 c 0,-0.83185 -0.47625,-1.2827 -1.14935,-1.2827 -0.4318,0 -0.7493,0.1778 -1.016,0.47625 v -0.41275 h -0.99695 v 3.4163 h 1.08585 z m 4.324347,1.86055 c 1.00965,0 1.78435,-0.79375 1.78435,-1.77165 0,-0.9779 -0.7747,-1.77165 -1.78435,-1.77165 -1.00965,0 -1.78435,0.79375 -1.78435,1.77165 0,0.9779 0.7747,1.77165 1.78435,1.77165 z m 0,-0.97155 c -0.33655,0 -0.65405,-0.2667 -0.65405,-0.8001 0,-0.5334 0.3175,-0.79375 0.65405,-0.79375 0.33655,0 0.65405,0.26035 0.65405,0.79375 0,0.5334 -0.3175,0.8001 -0.65405,0.8001 z"
+                                            id="path29" />
+                                        <path
+                                            d="m 28.05851,13.860284 c 0,-1.016 -0.59055,-1.74625 -1.4859,-1.74625 -0.47625,0 -0.889,0.24765 -1.1303,0.67945 v -0.61595 h -0.5969 v 4.59105 h 0.64135 v -1.79705 c 0.2413,0.4064 0.62865,0.635 1.08585,0.635 0.9017,0 1.4859,-0.73025 1.4859,-1.74625 z m -0.66675,0 c 0,0.75565 -0.40005,1.17475 -0.9525,1.17475 -0.53975,0 -0.9525,-0.4318 -0.9525,-1.17475 0,-0.75565 0.4191,-1.1811 0.9525,-1.1811 0.55245,0 0.9525,0.42545 0.9525,1.1811 z m 1.955798,1.68275 v -1.59385 l 1.51765,1.59385 h 0.8255 l -1.7018,-1.73355 1.55575,-1.63195 h -0.75565 l -1.44145,1.50495 v -2.69875 h -0.64135 v 4.5593 z m 5.587991,-3.3655 h -0.6477 l -0.90805,2.5654 -0.9779,-2.5654 h -0.69215 l 1.32715,3.32105 -0.4826,1.27 h 0.6985 z"
+                                            id="path30" />
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                    </div>
+                    <nav class="col-2">
+                        <div class="baris center">
+                            <a href="#biaya" class="col-2">
+                                <div class="outline">Biaya</div>
+                            </a>
+                            <a href="#tentang" class="col-2">
+                                <div class="outline">Tentang</div>
+                            </a>
+                        </div>
+                    </nav>
+                </header>
 
-  function generateRandomCharacter() {
-    return characters.charAt(Math.floor(Math.random() * characters.length));
-  }
+                <div class="jarak-2"></div>
 
-  function generateRandomText(length) {
-    let text = '';
-    for (let i = 0; i < length; i++) {
-      text += generateRandomCharacter();
-    }
-    return text;
-  }
+                <article class="center">
+                    <div class="p-2">
+                        <h1>Ingin memiliki website?</h1>
+                        <p>Mendesain website sendiri dapat memerlukan waktu yang lama. Renopky dapat mendesain website
+                            Anda,
+                            mendaftarkan
+                            domain, membuatnya online, dan mengelolanya untuk Anda.</p>
 
-  function createMovingText() {
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
-    const textLength = screenWidth * screenHeight; // Panjang teks disesuaikan dengan ukuran layar
-    const text = generateRandomText(textLength);
-    terminal.textContent = text;
-  }
+                        <div class="baris">
+                            <div class="col-4 p-1" name="organisasi" id="organisasi">
+                                <div class="p-1">
+                                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                                    <!-- Created with Inkscape (http://www.inkscape.org/) -->
+                                    <svg width="64.000427" height="61.531837" viewBox="0 0 16.933447 16.280298"
+                                        version="1.1" id="svg1" xml:space="preserve"
+                                        xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                                        xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+                                        <sodipodi:namedview id="namedview1" pagecolor="#ffffff" bordercolor="#000000"
+                                            borderopacity="0.25" inkscape:showpageshadow="false"
+                                            inkscape:pageopacity="0.0" inkscape:pagecheckerboard="0"
+                                            inkscape:deskcolor="#d1d1d1" inkscape:document-units="px"
+                                            showborder="false" />
+                                        <defs id="defs1" />
+                                        <g inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1"
+                                            transform="translate(-22.602978,-43.323253)">
+                                            <path id="XMLID_481_" style="fill:#f9f9f9;stroke-width:0.0400416"
+                                                d="m 31.069472,43.323253 c -0.995154,0 -1.801957,0.806804 -1.801957,1.801957 0,0.784496 0.501709,1.451665 1.201477,1.699122 v 1.349271 c 0.195963,-0.02959 0.396387,-0.04496 0.60048,-0.04496 0.204092,0 0.404516,0.01537 0.60048,0.04496 v -1.349271 c 0.699767,-0.247457 1.201477,-0.914626 1.201477,-1.699122 0,-0.995113 -0.806844,-1.801957 -1.801957,-1.801957 z M 24.4275,48.165335 c -0.768076,-0.0097 -1.485952,0.476432 -1.735811,1.245402 -0.30752,0.946463 0.210095,1.962626 1.156518,2.270146 0.746135,0.242411 1.535966,-0.02844 1.987476,-0.617534 l 1.283126,0.417029 c 0.06651,-0.404179 0.193805,-0.788 0.37207,-1.142049 L 26.20672,49.9213 c -0.0191,-0.741931 -0.49879,-1.425187 -1.244886,-1.667598 -0.177454,-0.05766 -0.357086,-0.08613 -0.534334,-0.08837 z m 13.283944,0 c -0.177254,0.0022 -0.356865,0.03071 -0.534335,0.08837 -0.746055,0.242411 -1.225866,0.925587 -1.244885,1.667598 l -1.283643,0.417029 c 0.178266,0.354049 0.305045,0.73791 0.371554,1.142049 l 1.283643,-0.417029 c 0.451508,0.589052 1.240863,0.859985 1.986958,0.617534 0.946343,-0.30756 1.464555,-1.323763 1.157036,-2.270146 -0.249892,-0.769002 -0.968228,-1.255072 -1.736328,-1.245402 z m -6.641972,1.16427 a 2.8029149,2.8029149 0 0 0 -2.80293,2.80293 2.8029149,2.8029149 0 0 0 2.80293,2.802929 2.8029149,2.8029149 0 0 0 2.802929,-2.802929 2.8029149,2.8029149 0 0 0 -2.802929,-2.80293 z m -2.811715,5.651335 -0.794267,1.093473 c -0.711539,-0.211099 -1.509343,0.03355 -1.970422,0.668176 -0.584888,0.805077 -0.406611,1.931714 0.398425,2.516643 0.805116,0.584887 1.932232,0.40665 2.517159,-0.398426 0.46112,-0.634659 0.447071,-1.469018 0.02635,-2.080493 l 0.79375,-1.09244 c -0.358732,-0.186474 -0.685824,-0.425401 -0.971,-0.706933 z m 5.623429,0 c -0.285175,0.281572 -0.612267,0.520459 -0.971,0.706933 l 0.79375,1.09244 c -0.420676,0.611474 -0.434249,1.445794 0.02687,2.080493 0.584927,0.805076 1.711606,0.983353 2.516642,0.398426 0.805077,-0.584969 0.983393,-1.711526 0.398426,-2.516643 -0.46112,-0.634659 -1.258883,-0.879395 -1.970423,-0.668176 z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                Organisasi
+                            </div>
+                            <div class="col-4 p-1" name="perusahaan" id="perusahaan">
+                                <div class="p-1">
+                                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                                    <!-- Created with Inkscape (http://www.inkscape.org/) -->
+                                    <svg width="55.999996" height="61.333984" viewBox="0 0 14.816666 16.227949"
+                                        version="1.1" id="svg1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:svg="http://www.w3.org/2000/svg">
+                                        <defs id="defs1" />
+                                        <g id="layer1" transform="translate(53.797182,-30.520934)">
+                                            <path id="path1" style="fill:#ffffff;stroke-width:0.352778"
+                                                d="m -52.386416,30.520934 v 1.411283 h -1.410767 v 14.816667 h 3.880384 v -3.175 h 1.411283 v 3.175 h 3.880383 V 31.932217 h -1.411283 v -1.411283 z m 0.7059,2.822567 h 0.705383 v 0.705383 h -0.705383 z m 1.410766,0 h 0.705901 v 0.705383 h -0.705901 z m 1.411284,0 h 0.705383 v 0.705383 h -0.705383 z m 1.411283,0 h 0.705384 v 0.705383 h -0.705384 z m 3.527433,1.410766 v 1.411284 h 0.705901 v 0.705383 h -0.705901 v 0.7059 h 0.705901 v 0.705383 h -0.705901 v 0.705384 h 0.705901 v 0.7059 h -0.705901 v 0.705383 h 0.705901 v 0.705383 h -0.705901 v 0.7059 h 0.705901 v 0.705384 h -0.705901 v 0.705383 h 0.705901 v 0.7059 h -0.705901 v 0.705383 h 0.705901 v 0.705384 h -0.705901 v 1.411283 h 4.939234 V 34.754267 Z m -7.760766,0.35295 h 0.705383 v 1.411284 h -0.705383 z m 1.410766,0 h 0.705901 v 1.411284 h -0.705901 z m 1.411284,0 h 0.705383 v 1.411284 h -0.705383 z m 1.411283,0 h 0.705384 v 1.411284 h -0.705384 z m 4.938717,1.058334 h 0.705383 v 0.705383 h -0.705383 z m 1.411283,0 h 0.705384 v 0.705383 h -0.705384 z m -10.583333,1.058333 h 0.705383 v 1.411283 h -0.705383 z m 1.410766,0 h 0.705901 v 1.411283 h -0.705901 z m 1.411284,0 h 0.705383 v 1.411283 h -0.705383 z m 1.411283,0 h 0.705384 v 1.411283 h -0.705384 z m 4.938717,0.35295 h 0.705383 v 0.705383 h -0.705383 z m 1.411283,0 h 0.705384 v 0.705383 h -0.705384 z m -1.411283,1.410767 h 0.705383 v 0.7059 h -0.705383 z m 1.411283,0 h 0.705384 v 0.7059 h -0.705384 z m -10.583333,0.35295 h 0.705383 v 1.411283 h -0.705383 z m 1.410766,0 h 0.705901 v 1.411283 h -0.705901 z m 1.411284,0 h 0.705383 v 1.411283 h -0.705383 z m 1.411283,0 h 0.705384 v 1.411283 h -0.705384 z m 4.938717,1.058333 h 0.705383 v 0.705383 h -0.705383 z m 1.411283,0 h 0.705384 v 0.705383 h -0.705384 z m -10.583333,1.058333 h 0.705383 v 1.411284 h -0.705383 z m 1.410766,0 h 0.705901 v 1.411284 h -0.705901 z m 1.411284,0 h 0.705383 v 1.411284 h -0.705383 z m 1.411283,0 h 0.705384 v 1.411284 h -0.705384 z m 4.938717,0.35295 h 0.705383 v 0.705384 h -0.705383 z m 1.411283,0 h 0.705384 v 0.705384 h -0.705384 z m -1.411283,1.410767 h 0.705383 v 0.7059 h -0.705383 z m 1.411283,0 h 0.705384 v 0.7059 h -0.705384 z m -10.583333,0.35295 h 0.705383 v 1.763717 h -0.705383 z m 4.233333,0 h 0.705384 v 1.763717 h -0.705384 z m 4.938717,1.058333 h 0.705383 v 0.705384 h -0.705383 z m 1.411283,0 h 0.705384 v 0.705384 h -0.705384 z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                Perusahaan
+                            </div>
+                            <div class="col-4 p-1" name="sekolah" id="sekolah">
+                                <div class="p-1">
+                                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                                    <!-- Created with Inkscape (http://www.inkscape.org/) -->
+                                    <svg width="56.000343" height="56" viewBox="0 0 14.816758 14.816666" version="1.1"
+                                        id="svg1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:svg="http://www.w3.org/2000/svg">
+                                        <defs id="defs1" />
+                                        <g id="layer1" transform="translate(27.594221,-31.932218)">
+                                            <path id="path1-5" style="fill:#ffffff;stroke-width:0.246944"
+                                                d="m -20.185798,31.932217 c -0.127423,0 -0.23151,0.104087 -0.23151,0.231511 v 2.502689 l -1.770951,1.432988 h -3.915524 c -0.260526,0 -0.568918,0.186762 -0.685229,0.414445 l -0.76016,1.486731 c -0.116558,0.227682 9.56e-4,0.413928 0.261482,0.413928 h 0.15658 v 7.408333 h -0.231511 a 0.23212777,0.23212777 0 0 0 -0.23151,0.231511 v 0.463021 a 0.23212777,0.23212777 0 0 0 0.23151,0.23151 h 14.353646 a 0.23212777,0.23212777 0 0 0 0.231511,-0.23151 v -0.463021 a 0.23212777,0.23212777 0 0 0 -0.231511,-0.231511 h -0.23151 v -7.408333 h 0.156579 c 0.260527,0 0.377794,-0.186246 0.261483,-0.413928 l -0.76016,-1.487248 c -0.116557,-0.227683 -0.424951,-0.413928 -0.68523,-0.413928 h -3.91604 l -1.770434,-1.433504 V 34.10056 c 0.926041,0.738858 1.852084,-1.591765 2.778125,-0.852661 -0.926041,-1.307322 -1.852084,0.454662 -2.778125,-0.852661 v -0.23151 c 2.47e-4,-0.127424 -0.104088,-0.231511 -0.231511,-0.231511 z m 0,3.327446 c 0.0647,0 0.129412,0.02021 0.178801,0.06046 l 3.578076,2.947107 c 0.09804,0.08075 0.07472,0.147278 -0.05271,0.147278 h -0.463021 v 7.408333 h -1.389062 v -2.778125 h 0.463021 v -0.464571 c 0,0 -1.591243,-0.961029 -2.095997,-1.320333 a 0.39165388,0.39165388 0 0 0 -0.438216,0 c -0.504753,0.359304 -2.095996,1.320333 -2.095996,1.320333 v 0.464571 h 0.463021 v 2.778125 h -1.389062 v -7.408333 h -0.463021 c -0.127423,0 -0.150743,-0.06653 -0.05271,-0.147278 l 3.578076,-2.947107 c 0.04914,-0.04025 0.114101,-0.06046 0.1788,-0.06046 z m -0.121439,1.074353 a 1.6206964,1.6206964 0 0 0 -1.499134,1.617472 1.6206964,1.6206964 0 1 0 3.241146,0 1.6206964,1.6206964 0 0 0 -1.742012,-1.617472 z m 0.121956,0.45992 a 1.1579225,1.1579225 0 0 1 1.157552,1.158069 1.1579225,1.1579225 0 0 1 -2.315621,-5.17e-4 1.1579225,1.1579225 0 0 1 1.158069,-1.157552 z m -5.17e-4,0.23151 c -0.127423,0 -0.23151,0.104088 -0.23151,0.231511 v 0.694531 h -0.232027 c -0.127423,0 -0.231511,0.104604 -0.231511,0.232027 0,0.127424 0.104088,0.231511 0.231511,0.231511 h 0.463537 a 0.23286861,0.23286861 0 0 0 0.231511,-0.232027 v -0.926042 c 0,-0.127423 -0.104088,-0.231511 -0.231511,-0.231511 z m -6.482291,1.389063 h 2.2071 c 0.0044,0.04025 0.01195,0.07835 0.02429,0.113171 0.0605,0.169157 0.236328,0.34985 0.546737,0.34985 v 6.945312 h -2.778125 z m 10.757999,0 h 2.206584 v 7.408333 h -2.778125 V 38.87753 c 0.310409,0 0.486235,-0.180693 0.546737,-0.34985 0.01235,-0.03482 0.02036,-0.07292 0.0248,-0.113171 z m -10.063468,0.347266 c -0.191382,0 -0.347266,0.155883 -0.347266,0.347265 v 0.926042 c 0,0.191382 0.155884,0.347266 0.347266,0.347266 h 1.389062 c 0.191382,0 0.347266,-0.155884 0.347266,-0.347266 V 39.10904 c 0,-0.191382 -0.155884,-0.347265 -0.347266,-0.347265 z m 10.186458,0 a 0.34745083,0.34745083 0 0 0 -0.347265,0.347265 v 0.926042 c 0,0.191382 0.155884,0.347266 0.347265,0.347266 h 1.389063 c 0.191382,0 0.346749,-0.155884 0.346749,-0.347266 V 39.10904 c 0,-0.191382 -0.155367,-0.347265 -0.346749,-0.347265 z m -10.186458,0.23151 h 0.578776 v 1.157552 h -0.578776 a 0.11606389,0.11606389 0 0 1 -0.115755,-0.115755 V 39.10904 a 0.11606389,0.11606389 0 0 1 0.115755,-0.115755 z m 0.80977,0 h 0.579292 a 0.11606389,0.11606389 0 0 1 0.115756,0.115755 v 0.926042 a 0.11606389,0.11606389 0 0 1 -0.115756,0.115755 h -0.579292 z m 9.376688,0 h 0.578776 v 1.157552 H -15.7871 a 0.11606389,0.11606389 0 0 1 -0.116272,-0.115755 V 39.10904 a 0.11606389,0.11606389 0 0 1 0.116272,-0.115755 z m 0.810287,0 h 0.578776 a 0.11606389,0.11606389 0 0 1 0.115755,0.115755 v 0.926042 a 0.11606389,0.11606389 0 0 1 -0.115755,0.115755 h -0.578776 z m -7.613489,1.041797 c -0.22553,0.007 -0.360185,0.122186 -0.360185,0.270268 0,0.13014 0.109334,0.212724 0.277503,0.264583 0.121249,0.03828 0.169498,0.07029 0.169498,0.12609 0,0.05853 -0.05576,0.09715 -0.160713,0.09715 -0.0973,0 -0.191726,-0.02766 -0.253215,-0.05581 l -0.04651,0.167948 c 0.0568,0.0279 0.171235,0.05426 0.286805,0.05426 0.277317,0 0.407727,-0.12763 0.407727,-0.278019 0,-0.126435 -0.08398,-0.208642 -0.262517,-0.267167 -0.13014,-0.04396 -0.188102,-0.06931 -0.188102,-0.126607 0,-0.04643 0.04828,-0.0863 0.147795,-0.0863 0.09853,0 0.170588,0.0251 0.21084,0.04238 l 0.05116,-0.163815 a 0.68601165,0.68601165 0 0 0 -0.257865,-0.04496 c -0.0075,0 -0.01495,-2.27e-4 -0.02222,0 z m 0.980302,0 c -0.305964,0 -0.552421,0.170246 -0.552421,0.476457 0,0.255586 0.18001,0.448034 0.529683,0.448034 0.122978,0 0.217953,-0.01948 0.259933,-0.03824 l -0.03514,-0.15813 a 0.6395861,0.6395861 0 0 1 -0.19017,0.02894 c -0.203728,0 -0.324011,-0.11296 -0.324011,-0.292489 2.47e-4,-0.199531 0.141721,-0.296623 0.322978,-0.296623 0.08075,0 0.145024,0.01554 0.191203,0.03307 l 0.04651,-0.160713 c -0.04025,-0.01877 -0.13003,-0.04031 -0.248564,-0.04031 z m 1.865519,0 c -0.298309,0 -0.491443,0.201064 -0.491443,0.469739 0,0.255587 0.175117,0.456303 0.474907,0.456303 0.295592,0 0.49661,-0.17819 0.49661,-0.471806 -2.47e-4,-0.247933 -0.169665,-0.454236 -0.480074,-0.454236 z m 1.075903,0 c -0.298555,0 -0.491959,0.201064 -0.491959,0.469739 0,0.255587 0.175116,0.456303 0.474906,0.456303 0.29584,0 0.496611,-0.17819 0.496611,-0.471806 -2.47e-4,-0.247933 -0.169643,-0.454236 -0.479558,-0.454236 z m -2.554366,0.01447 v 0.897103 h 0.229444 v -0.375687 h 0.376204 v 0.375687 h 0.22841 v -0.897103 h -0.22841 V 40.39475 H -20.9935 v -0.345199 z m 3.183785,0 v 0.897103 h 0.631486 v -0.170532 h -0.402042 v -0.726571 z m -1.711006,0.146245 c 0.157551,0 0.244429,0.138715 0.244429,0.299723 0,0.174343 -0.08878,0.304891 -0.242879,0.304891 -0.153106,0 -0.24598,-0.124146 -0.24598,-0.299723 0,-0.174343 0.09009,-0.304891 0.24443,-0.304891 z m 1.074869,0 c 0.157798,0 0.24443,0.138715 0.24443,0.299723 0,0.174343 -0.08803,0.304891 -0.242362,0.304891 -0.153106,0 -0.24598,-0.124146 -0.24598,-0.299723 0,-0.174343 0.08957,-0.304891 0.243912,-0.304891 z m -7.298262,0.996838 c -0.191382,0 -0.347266,0.155884 -0.347266,0.347266 v 0.926041 c 0,0.191382 0.155884,0.347266 0.347266,0.347266 h 1.389062 c 0.191382,0 0.347266,-0.155884 0.347266,-0.347266 V 41.5399 c 0,-0.191382 -0.155884,-0.347266 -0.347266,-0.347266 z m 10.186458,0 c -0.191382,0 -0.347265,0.155884 -0.347265,0.347266 v 0.926041 c 0,0.191382 0.155883,0.347266 0.347265,0.347266 h 1.389063 c 0.191382,0 0.347265,-0.155884 0.347265,-0.347266 V 41.5399 c 0,-0.191382 -0.155883,-0.347266 -0.347265,-0.347266 z m -10.186458,0.23151 h 0.578776 v 1.157552 h -0.578776 a 0.11606389,0.11606389 0 0 1 -0.115755,-0.115755 V 41.5399 a 0.11606389,0.11606389 0 0 1 0.115755,-0.115755 z m 0.80977,0 h 0.579292 a 0.11606389,0.11606389 0 0 1 0.115756,0.115756 v 0.926041 a 0.11606389,0.11606389 0 0 1 -0.115756,0.115755 h -0.579292 z m 9.376688,0 h 0.578776 v 1.157552 H -15.7871 a 0.11606389,0.11606389 0 0 1 -0.116272,-0.115755 V 41.5399 a 0.11606389,0.11606389 0 0 1 0.116272,-0.115755 z m 0.80977,0 h 0.579293 a 0.11606389,0.11606389 0 0 1 0.115755,0.115756 v 0.926041 a 0.11606389,0.11606389 0 0 1 -0.115755,0.115755 h -0.579293 z m -6.59753,1.620573 h 1.273307 v 2.778125 h -1.273307 z m 1.504818,0 h 1.273307 v 2.778125 h -1.273307 z m -5.903516,0.463021 c -0.191382,0 -0.347266,0.155884 -0.347266,0.347266 v 0.926041 c 0,0.191382 0.155884,0.347266 0.347266,0.347266 h 1.389062 c 0.191382,0 0.347266,-0.155884 0.347266,-0.347266 v -0.926041 c 0,-0.191382 -0.155884,-0.347266 -0.347266,-0.347266 z m 10.186458,0 c -0.191382,0 -0.347265,0.155884 -0.347265,0.347266 v 0.926041 c 0,0.191382 0.155883,0.347266 0.347265,0.347266 h 1.389063 c 0.191382,0 0.347265,-0.155884 0.347265,-0.347266 v -0.926041 c 0,-0.191382 -0.155883,-0.347266 -0.347265,-0.347266 z m -10.186458,0.231511 h 0.578776 v 1.157552 h -0.578776 a 0.11606389,0.11606389 0 0 1 -0.115755,-0.115756 v -0.926041 a 0.11606389,0.11606389 0 0 1 0.115755,-0.115755 z m 0.80977,0 h 0.579292 a 0.11606389,0.11606389 0 0 1 0.115756,0.115755 v 0.926041 a 0.11606389,0.11606389 0 0 1 -0.115756,0.115756 h -0.579292 z m 9.376688,0 h 0.578776 v 1.157552 H -15.7871 a 0.11606389,0.11606389 0 0 1 -0.116272,-0.115756 V 43.855005 A 0.11606389,0.11606389 0 0 1 -15.7871,43.73925 Z m 0.80977,0 h 0.579293 a 0.11606389,0.11606389 0 0 1 0.115755,0.115755 v 0.926041 a 0.11606389,0.11606389 0 0 1 -0.115755,0.115756 h -0.579293 z m -5.888529,0.578776 v 0.167948 h 0.332796 v -0.167948 z m 1.027327,0 v 0.167948 h 0.332796 v -0.167948 z m -2.816882,1.775085 h 4.938716 v 0.37052 h -4.938716 z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                Sekolah
+                            </div>
+                            <div class="col-4 p-1" name="sekolah" id="sekolah">
+                                <div class="p-1">
+                                    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                                    <!-- Created with Inkscape (http://www.inkscape.org/) -->
+                                    <svg width="56.000137" height="63.427723" viewBox="0 0 14.816704 16.781917"
+                                        version="1.1" id="svg1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:svg="http://www.w3.org/2000/svg">
+                                        <defs id="defs1" />
+                                        <g id="layer1" transform="translate(46.934718,-67.543511)">
+                                            <path id="path1-9" style="fill:#ffffff;stroke-width:0.0379216"
+                                                d="m -44.842007,67.543511 c -0.507391,0 -0.91829,0.411013 -0.91829,0.91829 0,0.253885 0.102417,0.483652 0.269234,0.650089 -0.06849,0.121273 -0.12485,0.250288 -0.161747,0.38654 l -1.229383,4.552177 c -0.166438,0.616262 0.07509,1.136498 0.548804,1.260388 v 9.014437 h 13.691154 v -9.162231 c 0.420019,-0.159195 0.628786,-0.649913 0.472322,-1.230416 l -1.229899,-4.552177 c -0.03777,-0.139059 -0.09628,-0.270113 -0.166398,-0.393775 0.104094,-0.148917 0.166398,-0.329584 0.166398,-0.525032 0,-0.507466 -0.411682,-0.91829 -0.918807,-0.91829 z m 1.935282,2.599841 h 1.802991 c -0.0091,0.05821 -0.01809,0.116651 -0.01809,0.17725 v 3.814754 l -0.0021,-0.001 c -0.428666,0.810838 -1.091239,1.173021 -1.816943,0.992704 -0.601549,-0.149184 -1.021127,-0.613688 -1.021127,-0.936894 h -0.04547 c 0.0096,-0.02783 0.02227,-0.05435 0.02997,-0.08268 z m 4.898926,0 h 1.893424 l 1.039213,3.846277 c 0.01597,0.05988 0.03974,0.117101 0.06253,0.174666 -0.464009,0.759681 -1.138176,1.089627 -1.872754,0.906922 -0.644855,-0.159991 -1.094579,-0.655139 -1.104325,-1.006141 v -3.744474 c 0,-0.0606 -0.0091,-0.119078 -0.01809,-0.17725 z m 3.115572,4.27054 c 0.283768,0.48661 0.779974,0.830947 1.255737,0.821656 l 0.285254,-0.0057 v 8.386568 h -0.905888 v -5.977929 h -10.399882 v 5.977929 h -0.967382 v -8.266678 l 0.208256,0.0036 c 0.4926,0.01 1.006408,-0.359922 1.284676,-0.874365 0.158968,0.384599 0.604282,0.746068 1.133781,0.877466 0.103374,0.0256 0.247671,0.05064 0.417028,0.05064 0.417251,0 0.985182,-0.153061 1.460376,-0.825789 0.0089,0.641101 0.533046,0.929659 1.18029,0.929659 h 0.767912 c 0.558204,0 1.023137,-0.388264 1.147217,-0.908472 0.228628,0.314446 0.628079,0.585446 1.083138,0.698149 0.110617,0.02757 0.265333,0.05426 0.446484,0.05426 0.458396,0 1.08583,-0.173495 1.603003,-0.941028 z m -2.655135,4.125847 c 0.318162,0 0.575675,0.25778 0.575675,0.575675 0,0.318276 -0.25755,0.576709 -0.575675,0.576709 -0.318048,0 -0.576192,-0.258433 -0.576192,-0.576709 0,-0.317933 0.258144,-0.575675 0.576192,-0.575675 z m -4.254521,0.255798 c 0.318086,0 0.575676,0.258296 0.575676,0.576192 0,0.318389 -0.25759,0.576193 -0.575676,0.576193 -0.318086,0 -0.576192,-0.257804 -0.576192,-0.576193 0,-0.317934 0.258106,-0.576192 0.576192,-0.576192 z m 4.230233,0.896586 c 0.425821,0 0.772038,0.326843 0.80977,0.743107 h 0.249597 v 2.954342 h -5.17e-4 -7.386112 V 80.43523 h 1.3255 c 0.127038,-0.286724 0.412712,-0.487308 0.746725,-0.487308 0.333482,0 0.619914,0.200584 0.746724,0.487308 h 2.698027 c 0.03792,-0.416264 0.384085,-0.743107 0.810286,-0.743107 z" />
+                                        </g>
+                                    </svg>
+                                </div>
+                                UMKM
+                            </div>
+                        </div>
 
-  createMovingText();
-</script>
+                        <p>Website dapat dimiliki oleh organisasi, perusahaan, institusi pendidikan, UMKM, bahkan untuk
+                            kepentingan kampanye politik yang sehat.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+        <div class="latar-utama-muda col-2 overflow">
+            <article class="p-2 center">
+                <h1>Mulai dari sini.</h1>
+                <p>Pilih desain yang sesuai dengan gaya organisasi atau perusahaan Anda.</p>
+            </article>
+        </div>
+    </div>
+
+    <!-- Tersembunyi -->
+    <div class="pop-up" id="tentang" name="tentang">
+        <div class="p-2 border-bottom">
+            <a href="#" class="negatif">Tutup</a> / <span><b>Tentang</b></span>
+        </div>
+        <div class="p-2">
+            <p>Lorem ipsum</p>
+        </div>
+    </div>
+
+    <div class="pop-up" id="biaya" name="biaya">
+        <div class="p-2 border-bottom">
+            <a href="#" class="negatif">Tutup</a> / <span><b>Biaya</b></span>
+        </div>
+        <div class="p-2">
+            <div class="baris center">
+                <div class="col-3 informasi">
+                    <div class="p-2">
+                        <div class="h4">REGISTRASI DOMAIN</div>
+                        <p>Mulai dari</p>
+                        <span class="h1">150.000</span>
+                        <p>Dibayarkan per tahun untuk domain .com, .org, .net</p>
+                    </div>
+                </div>
+                <div class="col-3 informasi">
+                    <div class="p-2">
+                        <div class="h4">DESAIN</div>
+                        <p>Mulai dari</p>
+                        <span class="h1">350.000</span>
+                        <p>Desain landing page, dashboard, dan sistem.</p>
+                    </div>
+                </div>
+                <div class="col-3 informasi">
+                    <div class="p-2">
+                        <div class="h4">PEMELIHARAAN</div>
+                        <p>Mulai dari</p>
+                        <span class="h1">120.000</span>
+                        <p>Dibayarkan per tahun.</p>
+                    </div>
+                </div>
+            </div>
+            <p>Biaya tersebut hanyalah estimasi. Biaya menyesuaikan kebutuhan website Anda.</p>
+            <p>Terakhir diperbaharui: <b>2023-09-18</b></p>
+        </div>
+    </div>
 </body>
+
 </html>
