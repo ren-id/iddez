@@ -7,30 +7,6 @@
     --mp-2: calc(2 * var(--primary-size)) calc(2 * var(--primary-size)) calc(2 * var(--primary-size)) calc(2 * var(--primary-size));
 }
 
-@font-face {
-    font-family: "AmpleSoft Pro";
-    src: url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Regular.eot");
-    src: local("AmpleSoftPro-Regular"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Regular.eot?#iefix") format("embedded-opentype"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Regular.woff2") format("woff2"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Regular.woff") format("woff"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-  
-  @font-face {
-    font-family: "AmpleSoft Pro";
-    src: url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Bold.eot");
-    src: local("AmpleSoftPro-Bold"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Bold.eot?#iefix") format("embedded-opentype"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Bold.woff2") format("woff2"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Bold.woff") format("woff"),
-      url("https://www.honda-indonesia.com/assets/fonts/AmpleSoftPro/AmpleSoftPro-Bold.ttf") format("truetype");
-    font-weight: bold;
-    font-style: normal;
-  }
-
 * {
     font-family: 'Switzer', 'Inter', Arial, Helvetica, sans-serif;
     outline: none;
@@ -135,7 +111,7 @@ form {
 }
 
 h1, h2 {
-    font-family: 'AmpleSoft Pro', sans-serif !important;
+    font-family: 'Bevellier', sans-serif !important;
 }
 
 article h1:first-child {
