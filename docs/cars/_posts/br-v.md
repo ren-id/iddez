@@ -1,0 +1,12 @@
+---
+title: "Honda BR-V (2024)"
+description: "New Honda BR-V N7X hadir dengan Exclusive Aero Kit untuk tampilan lebih stylish, jadikan perjalanan Anda begitu istimewa."
+date: 2024-03-02
+thumb: br-v.webp
+startprice: Rp305.900.000
+startinstallment: Rp4.362.000
+status: active
+---
+#Honda BR-V (2024)
+
+New Honda BR-V N7X hadir dengan Exclusive Aero Kit untuk tampilan lebih stylish, jadikan perjalanan Anda begitu istimewa.
