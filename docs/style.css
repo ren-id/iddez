@@ -247,6 +247,10 @@ h2 {
 }
 
 .width-hd {
+    max-width: 720px;
+}
+
+.width-fhd {
     max-width: 1080px;
 }
 
