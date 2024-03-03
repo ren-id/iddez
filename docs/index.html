@@ -11,18 +11,21 @@ description: "Pemasaran dan Penjualan Resmi Mobil Honda Brio, Mobilio, WR-V, BR-
             <article class="center margin-tengah width-fhd">
                 <div class="p-2">
                     <h1>Pilih mobil impian Anda.</h1>
+                    <div class="jarak-2"></div>
                     <div class="baris">
                         {% for post in site.categories.cars limit:20 %}
                         <div class="col-4 p-1">
-                            <div class="p-1 thumb">
-                                <img src="images/{{ post.thumb }}" />
+                            <div class="p-1 product-catalogue">
+                                <div class="thumb">
+                                    <img src="images/{{ post.thumb }}" />
+                                </div>
+                                <h2>{{ post.title }}</h2>
+                                <img src="images/5stars.svg" height="20px" />
+                                <div class="title-1">Rp{{ post.startprice }}</div>
+                                <div class="margin-bawah">Cicil mulai dari <b>Rp{{ post.startinstallment }}</b> selama 95
+                                    bulan.</div>
+                                <a href="{{ site.url }}{{ post.url }}" class="tombol tombol-putih">Rincian</a>
                             </div>
-                            <h2>{{ post.title }}</h2>
-                            <img src="images/5stars.svg" height="20px" />
-                            <div class="title-1">Rp{{ post.startprice }}</div>
-                            <div class="margin-bawah">Cicil mulai dari <b>Rp{{ post.startinstallment }}</b> selama 95
-                                bulan.</div>
-                            <a href="{{ site.url }}{{ post.url }}" class="tombol tombol-putih">Rincian</a>
                         </div>
                         {% endfor %}
                     </div>
