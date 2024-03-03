@@ -279,6 +279,12 @@ h2 {
     font-weight: 600;
 }
 
+.product-catalogue {
+    border: 1px solid #ffffff60;
+    border-radius: 10px;
+    background-color: #00000010;
+}
+
 @media only screen and (max-width: 959px) {
     .col-2, .col-3, .col-4 {
         width: 100%;
