@@ -1,11 +1,11 @@
 ---
 title: "Honda New Brio (2024)"
 description: "Pengalaman berkendara penuh gaya dan kenyamanan dengan mobil yang sporty, stylish, dan sophisticated. Tunjukkan ke dunia tentang siapa kamu sebenarnya!"
-date: 2024-03-05
+date: 2024-03-06
 layout: product
 thumb: brio.webp
 startprice: 177.300.000
-startinstallment: 3.068.000
+startinstallment: 3.509.000
 status: active
 ---
 * 
@@ -22,11 +22,11 @@ status: active
 
 | Tenor | Angsuran |
 | --- | --: |
-| 3 tahun | 6.832.700 |
-| 4 tahun | 5.442.800 |
-| 5 tahun | 4.528.500 |
-| 6 tahun | 4.087.100 |
-| 8 tahun | 3.068.000 |
+| 3 tahun | 7.161.900 |
+| 4 tahun | 5.705.100 |
+| 5 tahun | 4.746.800 |
+| 6 tahun | 4.284.100 |
+| 8 tahun | 3.509.000 |
 
 ### 1.2. Electric Lime Metal
 
@@ -37,11 +37,11 @@ status: active
 
 | Tenor | Angsuran |
 | --- | --: |
-| 3 tahun | 7.035.900 |
-| 4 tahun | 5.604.700 |
-| 5 tahun | 4.663.300 |
-| 6 tahun | 4.208.700 |
-| 8 tahun | 3.159.300 |
+| 3 tahun | 7.375.000 |
+| 4 tahun | 5.874.800 |
+| 5 tahun | 4.888.000 |
+| 6 tahun | 4.411.500 |
+| 8 tahun | 3.613.400 |
 
 ## 2. New Brio Satya E M/T
 
@@ -54,11 +54,11 @@ status: active
 
 | Tenor | Angsuran |
 | --- | --: |
-| 3 tahun | 7.146.300 |
-| 4 tahun | 5.692.600 |
-| 5 tahun | 4.736.400 |
-| 6 tahun | 4.274.700 |
-| 8 tahun | 3.208.800 |
+| 3 tahun | 7.490.700 |
+| 4 tahun | 5.966.900 |
+| 5 tahun | 4.964.700 |
+| 6 tahun | 4.480.700 |
+| 8 tahun | 3.670.100 |
 
 ### 2.2. Electric Lime Metal
 
@@ -69,11 +69,11 @@ status: active
 
 | Tenor | Angsuran |
 | --- | --: |
-| 3 tahun | 7.349.500 |
-| 4 tahun | 5.854.500 |
-| 5 tahun | 4.871.100 |
-| 6 tahun | 4.396.300 |
-| 8 tahun | 3.300.100 |
+| 3 tahun | 7.703.700 |
+| 4 tahun | 6.136.700 |
+| 5 tahun | 5.105.900 |
+| 6 tahun | 4.608.100 |
+| 8 tahun | 3.774.500 |
 
 ## 3. New Brio Satya E CVT
 
@@ -86,11 +86,11 @@ status: active
 
 | Tenor | Angsuran |
 | --- | --: |
-| 3 tahun | 7.518.000 |
-| 4 tahun | 5.988.700 |
-| 5 tahun | 4.982.700 |
-| 6 tahun | 4.497.000 |
-| 8 tahun | 3.375.700 |
+| 3 tahun | 7.880.300 |
+| 4 tahun | 6.277.300 |
+| 5 tahun | 5.222.900 |
+| 6 tahun | 4.713.700 |
+| 8 tahun | 3.861.000 |
 
 ### 3.2. Electric Lime Metal
 
@@ -101,11 +101,11 @@ status: active
 
 | Tenor | Angsuran |
 | --- | --: |
-| 3 tahun | 7.721.200 |
-| 4 tahun | 6.150.600 |
-| 5 tahun | 5.117.500 |
-| 6 tahun | 4.618.600 |
-| 8 tahun | 3.467.000 |
+| 3 tahun | 8.093.300 |
+| 4 tahun | 6.447.000 |
+| 5 tahun | 5.364.100 |
+| 6 tahun | 4.841.200 |
+| 8 tahun | 3.965.400 |
 
 ## 4. New Brio RS M/T
 
@@ -122,7 +122,7 @@ status: active
 | 4 tahun | 7.061.600 |
 | 5 tahun | 5.875.400 |
 | 6 tahun | 5.302.700 |
-| 8 tahun | 4.126.300 |
+| 8 tahun | 4.285.900 |
 
 ### 4.2 Electric Lime Metal
 
@@ -137,7 +137,7 @@ status: active
 | 4 tahun | 7.227.400 |
 | 5 tahun | 6.013.400 |
 | 6 tahun | 5.427.200 |
-| 8 tahun | 4.223.200 |
+| 8 tahun | 4.386.600 |
 
 ### 4.3. Two Tone
 
@@ -152,7 +152,7 @@ status: active
 | 4 tahun | 7.120.800 |
 | 5 tahun | 5.924.700 |
 | 6 tahun | 5.347.100 |
-| 8 tahun | 4.160.900 |
+| 8 tahun | 4.321.900 |
 
 ## 5. New Brio RS CVT
 
@@ -169,7 +169,7 @@ status: active
 | 4 tahun | 7.298.500 |
 | 5 tahun | 6.072.500 |
 | 6 tahun | 5.480.500 |
-| 8 tahun | 4.264.700 |
+| 8 tahun | 4.429.700 |
 
 ### 5.2. Electric Lime Metal
 
@@ -184,7 +184,7 @@ status: active
 | 4 tahun | 7.464.300 |
 | 5 tahun | 6.210.500 |
 | 6 tahun | 5.605.100 |
-| 8 tahun | 4.361.600 |
+| 8 tahun | 4.530.400 |
 
 ### 5.3. Two Tone
 
@@ -199,4 +199,4 @@ status: active
 | 4 tahun | 7.357.700 |
 | 5 tahun | 6.121.800 |
 | 6 tahun | 5.525.000 |
-| 8 tahun | 4.299.300 |
+| 8 tahun | 4.465.700 |
