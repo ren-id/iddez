@@ -304,6 +304,11 @@ h2 {
     color: var(--primary-color);
 }
 
+.tombol-aksen {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
 .title-1 {
     margin: 16px 0 16px 0;
     font-size: 24px;
